@@ -1,0 +1,216 @@
+--- original/main.py
++++ legacy_eyecontrol/main.py
+@@ -69,15 +69,16 @@
+ 
+ 
+ from datetime import datetime
+-from eye_tracker import EyeTracker
+-from mouse_controller import MouseController
+-from calibrator import Calibrator
++from .eye_tracker import EyeTracker
++from .mouse_controller import MouseController
++from .calibrator import Calibrator
+ 
+ 
+ class EyeControlSystem:
+-    def __init__(self):
+-        self.eye_tracker = EyeTracker()
+-        self.mouse_controller = MouseController()
++    def __init__(self, eye_tracker=None, mouse_controller=None, on_frame=None):
++        self.eye_tracker = EyeTracker() if eye_tracker is None else eye_tracker
++        self.mouse_controller = MouseController() if mouse_controller is None else mouse_controller
++        self.on_frame = on_frame
+         self.calibrator = Calibrator(self.mouse_controller.get_screen_size())
+         self.is_running = False
+         self.enable_control = False
+@@ -198,7 +199,7 @@
+ 
+     def initialize_camera(self):
+         """Initialize camera """
+-        self.cap = cv2.VideoCapture(0)  # 使用摄像头
++        self.cap = cv2.VideoCapture(getattr(self, 'camera_index', 0))  # 使用摄像头
+         if not self.cap.isOpened():
+             print("Cannot open camera ")
+             return False
+@@ -238,10 +239,22 @@
+ 
+         self.calibrator.start_calibration()
+ 
+-        while self.calibrator.is_calibrating:
+-            ret, frame = self.cap.read()
+-            if not ret:
+-                continue
++        while self.calibrator.is_calibrating:
++            ret, frame = self.cap.read()
++            if self.on_frame is not None:
++                self.on_frame()
++            if not ret:
++                if cv2.waitKey(1) & 0xFF in (ord('q'), ord('Q')):
++                    self.is_running = False
++                    break
++                try:
++                    if cv2.getWindowProperty('Calibration', cv2.WND_PROP_VISIBLE) < 1:
++                        self.is_running = False
++                        break
++                except cv2.error:
++                    self.is_running = False
++                    break
++                continue
+ 
+             # 修复镜像：水平翻转画面
+             frame = cv2.flip(frame, 1)
+@@ -263,8 +276,23 @@
+                     if not self.calibrator.next_target():
+                         break
+ 
+-            if cv2.waitKey(1) & 0xFF == ord('q'):
+-                break
++            if cv2.waitKey(1) & 0xFF in (ord('q'), ord('Q')):
++                self.is_running = False
++                break
++            try:
++                if cv2.getWindowProperty('Calibration', cv2.WND_PROP_VISIBLE) < 1:
++                    self.is_running = False
++                    break
++            except cv2.error:
++                self.is_running = False
++                break
++
++        if not self.is_running:
++            try:
++                cv2.destroyWindow('Calibration')
++            except cv2.error:
++                pass
++            return
+ 
+         if len(self.eye_tracker.calibration_points) >= 5:
+             if self.eye_tracker.perform_calibration():
+@@ -450,7 +478,6 @@
+         print("数据记录将在检测到眼睛后自动开始")
+         print("Hotkeys:")
+         print("  c - Calibrate (9-point)")
+-        print("  m - Enable/Disable mouse control")
+         print("  q - Quit")
+ 
+ 
+@@ -492,9 +519,11 @@
+         waiting_counter = 0  # 等待检测的帧数计数器
+ 
+         try:
+-            while self.is_running:
+-                ret, frame = self.cap.read()
+-                if not ret:
++            while self.is_running:
++                ret, frame = self.cap.read()
++                if self.on_frame is not None:
++                    self.on_frame()
++                if not ret:
+                     break
+ 
+                 frame = cv2.flip(frame, 1)
+@@ -550,7 +579,7 @@
+ 
+                         # 右键前稍微延迟
+                         time.sleep(0.02)
+-                        pyautogui.rightClick()
++                        self.mouse_controller.right_click()
+ 
+                         # 右击后立即重置双击判定
+                         self.double_blink_pending = False
+@@ -657,16 +686,23 @@
+                     grid_display = self.draw_calibration_grid_window(1200, 900)
+                     cv2.imshow('Calibration Grid', grid_display)
+ 
+-                # 键盘操作
+-                key = cv2.waitKey(1) & 0xFF
+-                if key == ord('q'):
+-                    break
+-                elif key == ord('c'):
++                # 键盘操作
++                key = cv2.waitKey(1) & 0xFF
++                try:
++                    if (cv2.getWindowProperty('Eye Control', cv2.WND_PROP_VISIBLE) < 1 or
++                            (self.show_calibration_grid and
++                             cv2.getWindowProperty('Calibration Grid', cv2.WND_PROP_VISIBLE) < 1)):
++                        self.is_running = False
++                        break
++                except cv2.error:
++                    self.is_running = False
++                    break
++                if key in (ord('q'), ord('Q')):
++                    self.is_running = False
++                    break
++                elif key in (ord('c'), ord('C')):
+                     self.eye_tracker.reset_recalibration_prompt()
+                     self.run_calibration()
+-                elif key == ord('m'):
+-                    self.enable_control = not self.enable_control
+-                    print(f"Mouse Control: {'ENABLED' if self.enable_control else 'DISABLED'}")
+         except Exception as e:
+             print(f"Runtime error: {e}")
+         finally:
+@@ -689,4 +725,4 @@
+ 
+ 
+ if __name__ == "__main__":
+-    main()+    main()
+--- original/eye_tracker.py
++++ legacy_eyecontrol/eye_tracker.py
+@@ -328,7 +328,10 @@
+     #     except:
+     #         return (2880, 1800)  # 默认值
+ 
+-    def to_screen_coordinates(self, eye_pos: Tuple[float, float], screen_size: Tuple[int, int]) -> Tuple[float, float]:
++    def _map_normalized(self, feat):
++        return feat @ self.poly_matrix
++
++    def to_screen_coordinates(self, eye_pos: Tuple[float, float], screen_size: Tuple[int, int]) -> Tuple[float, float]:
+         """将眼睛坐标转换为屏幕坐标（增强眨眼锁定版）"""
+ 
+         # 1. 确保缓冲区和锁定状态已初始化
+@@ -381,7 +384,7 @@
+                         ex_norm = (eye_pos[0] - self.eye_min[0]) / self.eye_range[0]
+                         ey_norm = (eye_pos[1] - self.eye_min[1]) / self.eye_range[1]
+                         feat = np.array([ex_norm, ey_norm, ex_norm * ey_norm, 1])
+-                        res = feat @ self.poly_matrix
++                        res = self._map_normalized(feat)
+                         new_x, new_y = res[0], res[1]
+                         new_x = max(0, min(new_x, screen_size[0]))
+                         new_y = max(0, min(new_y, screen_size[1]))
+@@ -409,7 +412,7 @@
+                 feat = np.array([ex_norm, ey_norm, ex_norm * ey_norm, 1])
+ 
+                 # 矩阵映射
+-                res = feat @ self.poly_matrix
++                res = self._map_normalized(feat)
+                 final_x, final_y = res[0], res[1]
+ 
+                 # 边界约束
+@@ -630,4 +633,4 @@
+         """重置嘴部滚动状态（但保留方向设定）"""
+         self.mouth_open_counter = 0
+         self.cooldown_frames = 0
+-        # 注意：不重置 mouth_scroll_direction 和 mouth_center_ref+        # 注意：不重置 mouth_scroll_direction 和 mouth_center_ref
+--- original/mouse_controller.py
++++ legacy_eyecontrol/mouse_controller.py
+@@ -41,9 +41,12 @@
+         except Exception as e:
+             print(f"点击错误: {e}")
+ 
+-    def double_click(self):
+-        """执行双击操作"""
+-        pyautogui.doubleClick()  # 使用 pyautogui 的双击
++    def double_click(self):
++        """执行双击操作"""
++        pyautogui.doubleClick()  # 使用 pyautogui 的双击
++
++    def right_click(self):
++        return pyautogui.rightClick()
+ 
+     def get_screen_size(self):
+         """获取屏幕尺寸"""
+@@ -60,4 +63,4 @@
+             elif direction < 0:
+                 pyautogui.scroll(-13)  # 向下滚动
+         except Exception as e:
+-            print(f"滚轮滚动错误: {e}")+            print(f"滚轮滚动错误: {e}")
