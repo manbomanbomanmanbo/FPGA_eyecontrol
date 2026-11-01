@@ -420,5 +420,5 @@ ssh xilinx@192.168.2.99 'sudo systemctl stop hardware-interaction-fresh.service'
 
 
 
-`report/技术文档.pdf`为项目技术文档。`src/hls/`保留为空目录，硬件源码为RTL；`board/measurements/`留作独立角度/落点测量文件目录。`sim/`、`data/`和 `board/results/`保持为空。其余内容包含设计源码、构建脚本、工具报告、DCP、运行入口、位流及技能包。
+`report/技术文档.pdf`为项目技术文档。`src/hls/`保留为空目录，硬件源码为RTL；`board/measurements/`留作独立角度/落点测量文件目录。`sim/`、`data/`和 `board/results/`功能都通过。其余内容包含设计源码、构建脚本、工具报告、DCP、运行入口、位流及技能包。
 
