@@ -1,9 +1,0 @@
-# Direct runtime dependencies, based on the existing Windows eye-control environment.
-# Install into a NEW Python 3.12 environment, separate from ZED's NumPy 2 environment.
-numpy==1.26.4
-mediapipe==0.10.21
-opencv-contrib-python==4.11.0.86
-PyAutoGUI==0.9.54
-keyboard==0.13.5
-paramiko==5.0.0
-pyserial==3.5
