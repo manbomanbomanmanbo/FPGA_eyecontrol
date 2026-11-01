@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "recovered_on": "2026-10-07",
+  "controller_description": "此前电脑成功控制的同一套双轴步进驱动板；配套手册 WL-STEPDRI2-V1，旧照片未拍清实物型号标签",
+  "wiring_report": "用户报告按接线图连接：PMODB 1(TX) -> 驱动器 RXD；PMODB 2(RX) <- 驱动器 TXD；PMODB 5 或 11(GND) -> 驱动器 GND；不把原串口板的 5V/3V3 电源线接入 PMODB。",
+  "electrical_confirmation": "UNRESOLVED",
+  "electrical_review": "旧电脑控制确实成功；适配器被 Windows 识别为 USB-SERIAL CH340K (COM3)，旧照片的跳帽看似在 3V3 一侧。WCH 官方资料说明芯片支持 5V 和 3.3V 供电，但没有证明这块适配器的跳帽控制 TXD 电平，也没有证明驱动器 TXD 回传最高电压。已核对两份旧 PDF，均未给出 UART 双向电平规格，因此这些资料尚不能确认 PMODB 的 3.3V 电气兼容。",
+  "previous_serial_settings": {
+    "adapter": "USB-SERIAL CH340K (COM3)",
+    "adapter_usb_vid_pid": "1A86:7522",
+    "baud": 115200,
+    "format": "8N1",
+    "driver_id": 1,
+    "pan_motor": 1,
+    "tilt_motor": 2,
+    "pan_sign": 1,
+    "tilt_sign": -1,
+    "frame_start_hex": "57",
+    "frame_end_hex": "09"
+  },
+  "previous_operation": {
+    "user_report": "左右方向正确，上下方向相反，但位置都有一点偏差",
+    "observed_on": "2026-10-05",
+    "serial_opens": 20,
+    "writes_accepted_in_full": 421,
+    "read_reply_events": 198,
+    "reply_limit": "旧程序只记录回复而不校验完成状态，不能把所有回复事件当作到位证明。"
+  },
+  "evidence_sources": [
+    {
+      "kind": "actual_pc_runtime_log",
+      "path": "E:/eye_mouse_fpga/zed2i_fpga/eye_tracking_data/mouse_click_trace.jsonl",
+      "date": "2026-10-05",
+      "example_lines": [1660, 1713, 1715, 1719, 6856, 6858, 6880]
+    },
+    {
+      "kind": "previous_user_motion_report",
+      "thread_id": "01a10550-9310-7990-8cc1-9ce9c3aee2bf"
+    },
+    {
+      "kind": "previous_controller_and_adapter_photos",
+      "directory": "E:/eye_mouse_fpga/outputs/controller_history_20261007/photos",
+      "source_thread_id": "01a0fc17-38e4-7243-a457-284877777bfd",
+      "limit": "UART 标签可读；控制器型号及适配器芯片丝印不可读。跳帽位置仅是照片线索。"
+    },
+    {
+      "kind": "associated_controller_manual",
+      "path": "E:/eye_mouse_fpga/gimbal_uart_stage8/build/sim_independent03/oracle_snapshot/WL-STEPDRI2-V1步进电机驱动器用户手册.pdf",
+      "sha256": "a000565269da9304805e5321388a9c11e9316fba92d7ac943369332807873e32",
+      "limit": "协议与旧控制代码相符，未给出 UART 的输入阈值或输出电压。"
+    },
+    {
+      "kind": "previous_stepper_principle_pdf",
+      "path": "D:/微信/xwechat_files/wxid_og5g775fcqi122_9c0a/msg/file/2026-10/2相4线步进电机驱动原理.pdf",
+      "sha256": "70e3eb11cbcd02df7ebbc0c96f04105524ea026fba6ff2906118d2888d764353",
+      "limit": "7 页通用步进电机介绍，不含本控制板电路或 UART 电压。"
+    },
+    {
+      "kind": "official_adapter_chip_product_page",
+      "url": "https://www.wch.cn/products/CH340.html",
+      "checked_on": "2026-10-07",
+      "fact": "官方 CH340 产品页说明支持 5V 电源电压和 3.3V 电源电压。",
+      "limit": "芯片供电支持不是实物适配器跳帽连接证明，也不是驱动器 TXD 回传电压证明。照片上的芯片丝印未识别，CH340K 身份来自旧 Windows PnP 记录。"
+    },
+    {
+      "kind": "current_user_wiring_report",
+      "image_path": "C:/Users/19702/AppData/Local/Temp/codex-clipboard-4b7706f8-7bc2-4b11-8bb7-d44e781f88f4.png",
+      "user_report": "按照这个连的线",
+      "limit": "确认报告的接线拓扑，未测量电平。"
+    }
+  ]
+}

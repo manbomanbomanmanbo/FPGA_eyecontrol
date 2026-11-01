@@ -1,0 +1,616 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Mon Oct 26 22:52:57 2026
+| Host         : 侥幸罢了 running 64-bit major release  (build 9200)
+| Command      : report_timing_summary -delay_type min_max -report_unconstrained -file E:/hardware_interaction_build_20261026/reports/timing.rpt
+| Design       : eye_muse_bd_wrapper
+| Device       : 7z020-clg400
+| Speed File   : -1  PRODUCTION 1.12 2019-11-22
+| Design State : Physopt postRoute
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Summary Report
+
+------------------------------------------------------------------------------------------------
+| Timer Settings
+| --------------
+------------------------------------------------------------------------------------------------
+
+  Enable Multi Corner Analysis               :  Yes
+  Enable Pessimism Removal                   :  Yes
+  Pessimism Removal Resolution               :  Nearest Common Node
+  Enable Input Delay Default Clock           :  No
+  Enable Preset / Clear Arcs                 :  No
+  Disable Flight Delays                      :  No
+  Ignore I/O Paths                           :  No
+  Timing Early Launch at Borrowing Latches   :  No
+  Borrow Time for Max Delay Exceptions       :  Yes
+  Merge Timing Exceptions                    :  Yes
+  Inter-SLR Compensation                     :  Conservative
+
+  Corner  Analyze    Analyze    
+  Name    Max Paths  Min Paths  
+  ------  ---------  ---------  
+  Slow    Yes        Yes        
+  Fast    Yes        Yes        
+
+
+------------------------------------------------------------------------------------------------
+| Report Methodology
+| ------------------
+------------------------------------------------------------------------------------------------
+
+No report available as report_methodology has not been run prior. Run report_methodology on the current design for the summary of methodology violations.
+
+
+
+check_timing report
+
+Table of Contents
+-----------------
+1. checking no_clock (0)
+2. checking constant_clock (0)
+3. checking pulse_width_clock (0)
+4. checking unconstrained_internal_endpoints (0)
+5. checking no_input_delay (0)
+6. checking no_output_delay (0)
+7. checking multiple_clock (0)
+8. checking generated_clocks (0)
+9. checking loops (0)
+10. checking partial_input_delay (0)
+11. checking partial_output_delay (0)
+12. checking latch_loops (0)
+
+1. checking no_clock (0)
+------------------------
+ There are 0 register/latch pins with no clock.
+
+
+2. checking constant_clock (0)
+------------------------------
+ There are 0 register/latch pins with constant_clock.
+
+
+3. checking pulse_width_clock (0)
+---------------------------------
+ There are 0 register/latch pins which need pulse_width check
+
+
+4. checking unconstrained_internal_endpoints (0)
+------------------------------------------------
+ There are 0 pins that are not constrained for maximum delay.
+
+ There are 0 pins that are not constrained for maximum delay due to constant clock.
+
+
+5. checking no_input_delay (0)
+------------------------------
+ There are 0 input ports with no input delay specified.
+
+ There are 0 input ports with no input delay but user has a false path constraint.
+
+
+6. checking no_output_delay (0)
+-------------------------------
+ There are 0 ports with no output delay specified.
+
+ There are 0 ports with no output delay but user has a false path constraint
+
+ There are 0 ports with no output delay but with a timing clock defined on it or propagating through it
+
+
+7. checking multiple_clock (0)
+------------------------------
+ There are 0 register/latch pins with multiple clocks.
+
+
+8. checking generated_clocks (0)
+--------------------------------
+ There are 0 generated clocks that are not connected to a clock source.
+
+
+9. checking loops (0)
+---------------------
+ There are 0 combinational loops in the design.
+
+
+10. checking partial_input_delay (0)
+------------------------------------
+ There are 0 input ports with partial input delay specified.
+
+
+11. checking partial_output_delay (0)
+-------------------------------------
+ There are 0 ports with partial output delay specified.
+
+
+12. checking latch_loops (0)
+----------------------------
+ There are 0 combinational latch loops in the design through latch input
+
+
+
+------------------------------------------------------------------------------------------------
+| Design Timing Summary
+| ---------------------
+------------------------------------------------------------------------------------------------
+
+    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+    -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+      0.083        0.000                      0                66691        0.015        0.000                      0                66691        4.020        0.000                       0                 22114  
+
+
+All user specified timing constraints are met.
+
+
+------------------------------------------------------------------------------------------------
+| Clock Summary
+| -------------
+------------------------------------------------------------------------------------------------
+
+Clock       Waveform(ns)       Period(ns)      Frequency(MHz)
+-----       ------------       ----------      --------------
+clk_fpga_0  {0.000 5.000}      10.000          100.000         
+
+
+------------------------------------------------------------------------------------------------
+| Intra Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+-----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+clk_fpga_0          0.083        0.000                      0                66691        0.015        0.000                      0                66691        4.020        0.000                       0                 22114  
+
+
+------------------------------------------------------------------------------------------------
+| Inter Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Other Path Groups Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    ----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| User Ignored Path Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock    
+----------    ----------    --------    
+(none)                      clk_fpga_0    
+(none)        clk_fpga_0    clk_fpga_0    
+
+
+------------------------------------------------------------------------------------------------
+| Unconstrained Path Table
+| ------------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock    
+----------    ----------    --------    
+
+
+------------------------------------------------------------------------------------------------
+| Timing Details
+| --------------
+------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  clk_fpga_0
+  To Clock:  clk_fpga_0
+
+Setup :            0  Failing Endpoints,  Worst Slack        0.083ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.015ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack        4.020ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.083ns  (required time - arrival time)
+  Source:                 eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/sy_sum_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[12]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        9.724ns  (logic 5.368ns (55.205%)  route 4.356ns (44.795%))
+  Logic Levels:           26  (CARRY4=21 LUT1=2 LUT3=1 LUT6=2)
+  Clock Path Skew:        -0.068ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.663ns = ( 12.663 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.961ns
+    Clock Pessimism Removal (CPR):    0.230ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  eye_muse_bd_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    eye_muse_bd_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  eye_muse_bd_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=22148, routed)       1.667     2.961    eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/clk
+    SLICE_X39Y10         FDRE                                         r  eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/sy_sum_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X39Y10         FDRE (Prop_fdre_C_Q)         0.456     3.417 f  eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/sy_sum_reg[0]/Q
+                         net (fo=1, routed)           0.313     3.730    eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/sy_sum[0]
+    SLICE_X38Y9          LUT1 (Prop_lut1_I0_O)        0.124     3.854 r  eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y[0]_i_38/O
+                         net (fo=1, routed)           0.324     4.178    eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y[0]_i_38_n_0
+    SLICE_X37Y10         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.580     4.758 r  eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[0]_i_33/CO[3]
+                         net (fo=1, routed)           0.000     4.758    eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[0]_i_33_n_0
+    SLICE_X37Y11         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.872 r  eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[0]_i_28/CO[3]
+                         net (fo=1, routed)           0.000     4.872    eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[0]_i_28_n_0
+    SLICE_X37Y12         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.986 r  eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[0]_i_23/CO[3]
+                         net (fo=1, routed)           0.000     4.986    eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[0]_i_23_n_0
+    SLICE_X37Y13         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     5.100 r  eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[0]_i_18/CO[3]
+                         net (fo=1, routed)           0.000     5.100    eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[0]_i_18_n_0
+    SLICE_X37Y14         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     5.214 r  eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[0]_i_13/CO[3]
+                         net (fo=1, routed)           0.000     5.214    eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[0]_i_13_n_0
+    SLICE_X37Y15         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     5.328 r  eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[0]_i_8/CO[3]
+                         net (fo=1, routed)           0.000     5.328    eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[0]_i_8_n_0
+    SLICE_X37Y16         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     5.442 r  eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[0]_i_3/CO[3]
+                         net (fo=1, routed)           0.000     5.442    eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[0]_i_3_n_0
+    SLICE_X37Y17         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313     5.755 f  eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[0]_i_2/O[3]
+                         net (fo=4, routed)           0.581     6.336    eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[0]_i_2_n_4
+    SLICE_X35Y17         LUT1 (Prop_lut1_I0_O)        0.306     6.642 r  eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y[4]_i_4/O
+                         net (fo=1, routed)           0.331     6.973    eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y[4]_i_4_n_0
+    SLICE_X35Y18         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.580     7.553 r  eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[4]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.553    eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[4]_i_2_n_0
+    SLICE_X35Y19         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.667 r  eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[8]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.667    eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[8]_i_2_n_0
+    SLICE_X35Y20         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.781 r  eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[12]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.781    eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[12]_i_2_n_0
+    SLICE_X35Y21         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.895 r  eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[16]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.895    eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[16]_i_2_n_0
+    SLICE_X35Y22         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.009 r  eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[20]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     8.009    eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[20]_i_2_n_0
+    SLICE_X35Y23         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.123 r  eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[24]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     8.123    eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[24]_i_2_n_0
+    SLICE_X35Y24         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.237 r  eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[28]_i_2/CO[3]
+                         net (fo=1, routed)           0.009     8.246    eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[28]_i_2_n_0
+    SLICE_X35Y25         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.222     8.468 r  eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[31]_i_2/O[0]
+                         net (fo=3, routed)           0.780     9.249    eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[31]_i_2_n_7
+    SLICE_X40Y24         LUT3 (Prop_lut3_I0_O)        0.299     9.548 r  eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y[31]_i_71/O
+                         net (fo=1, routed)           0.493    10.040    eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y[31]_i_71_n_0
+    SLICE_X40Y24         LUT6 (Prop_lut6_I1_O)        0.124    10.164 r  eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y[31]_i_54/O
+                         net (fo=1, routed)           0.553    10.718    eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y[31]_i_54_n_0
+    SLICE_X36Y24         CARRY4 (Prop_carry4_DI[2]_CO[3])
+                                                      0.404    11.122 r  eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[31]_i_43/CO[3]
+                         net (fo=1, routed)           0.009    11.131    eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[31]_i_43_n_0
+    SLICE_X36Y25         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.248 r  eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[31]_i_34/CO[3]
+                         net (fo=1, routed)           0.000    11.248    eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[31]_i_34_n_0
+    SLICE_X36Y26         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.365 r  eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[31]_i_22/CO[3]
+                         net (fo=1, routed)           0.000    11.365    eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[31]_i_22_n_0
+    SLICE_X36Y27         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.482 r  eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[31]_i_10/CO[3]
+                         net (fo=1, routed)           0.000    11.482    eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[31]_i_10_n_0
+    SLICE_X36Y28         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.599 r  eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[31]_i_4/CO[3]
+                         net (fo=32, routed)          0.962    12.561    eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[31]_i_4_n_0
+    SLICE_X35Y28         LUT6 (Prop_lut6_I3_O)        0.124    12.685 r  eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y[12]_i_1/O
+                         net (fo=1, routed)           0.000    12.685    eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y[12]_i_1_n_0
+    SLICE_X35Y28         FDRE                                         r  eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[12]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  eye_muse_bd_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088    11.088    eye_muse_bd_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  eye_muse_bd_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=22148, routed)       1.484    12.663    eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/clk
+    SLICE_X35Y28         FDRE                                         r  eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[12]/C
+                         clock pessimism              0.230    12.893    
+                         clock uncertainty           -0.154    12.739    
+    SLICE_X35Y28         FDRE (Setup_fdre_C_D)        0.029    12.768    eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/screen_y_reg[12]
+  -------------------------------------------------------------------
+                         required time                         12.768    
+                         arrival time                         -12.685    
+  -------------------------------------------------------------------
+                         slack                                  0.083    
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.015ns  (arrival time - required time)
+  Source:                 eye_muse_bd_i/gimbal_uart_0/inst/engine/core/r_reg[10][11]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            eye_muse_bd_i/gimbal_uart_0/inst/engine/core/delta_tilt_reg[11]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        0.471ns  (logic 0.249ns (52.855%)  route 0.222ns (47.145%))
+  Logic Levels:           2  (CARRY4=1 LUT2=1)
+  Clock Path Skew:        0.351ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.305ns
+    Source Clock Delay      (SCD):    0.919ns
+    Clock Pessimism Removal (CPR):    0.035ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  eye_muse_bd_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.310     0.310    eye_muse_bd_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  eye_muse_bd_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=22148, routed)       0.583     0.919    eye_muse_bd_i/gimbal_uart_0/inst/engine/core/s00_axi_aclk
+    SLICE_X83Y94         FDRE                                         r  eye_muse_bd_i/gimbal_uart_0/inst/engine/core/r_reg[10][11]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X83Y94         FDRE (Prop_fdre_C_Q)         0.141     1.060 r  eye_muse_bd_i/gimbal_uart_0/inst/engine/core/r_reg[10][11]/Q
+                         net (fo=1, routed)           0.222     1.282    eye_muse_bd_i/gimbal_uart_0/inst/engine/core/r_reg[10]_22[11]
+    SLICE_X83Y100        LUT2 (Prop_lut2_I1_O)        0.045     1.327 r  eye_muse_bd_i/gimbal_uart_0/inst/engine/core/delta_tilt[11]_i_2/O
+                         net (fo=1, routed)           0.000     1.327    eye_muse_bd_i/gimbal_uart_0/inst/engine/core/delta_tilt[11]_i_2_n_0
+    SLICE_X83Y100        CARRY4 (Prop_carry4_S[3]_O[3])
+                                                      0.063     1.390 r  eye_muse_bd_i/gimbal_uart_0/inst/engine/core/delta_tilt_reg[11]_i_1/O[3]
+                         net (fo=1, routed)           0.000     1.390    eye_muse_bd_i/gimbal_uart_0/inst/engine/core/delta_tilt0[11]
+    SLICE_X83Y100        FDRE                                         r  eye_muse_bd_i/gimbal_uart_0/inst/engine/core/delta_tilt_reg[11]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  eye_muse_bd_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.337     0.337    eye_muse_bd_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  eye_muse_bd_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=22148, routed)       0.939     1.305    eye_muse_bd_i/gimbal_uart_0/inst/engine/core/s00_axi_aclk
+    SLICE_X83Y100        FDRE                                         r  eye_muse_bd_i/gimbal_uart_0/inst/engine/core/delta_tilt_reg[11]/C
+                         clock pessimism             -0.035     1.270    
+    SLICE_X83Y100        FDRE (Hold_fdre_C_D)         0.105     1.375    eye_muse_bd_i/gimbal_uart_0/inst/engine/core/delta_tilt_reg[11]
+  -------------------------------------------------------------------
+                         required time                         -1.375    
+                         arrival time                           1.390    
+  -------------------------------------------------------------------
+                         slack                                  0.015    
+
+
+
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         clk_fpga_0
+Waveform(ns):       { 0.000 5.000 }
+Period(ns):         10.000
+Sources:            { eye_muse_bd_i/processing_system7_0/inst/PS7_i/FCLKCLK[0] }
+
+Check Type        Corner  Lib Pin      Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location     Pin
+Min Period        n/a     DSP48E1/CLK  n/a            3.884         10.000      6.116      DSP48_X1Y9   eye_muse_bd_i/gaze_map_axi_0/inst/gaze_map_axi_slave_lite_v1_0_S00_AXI_inst/u_gaze_map/ax0_reg/CLK
+Low Pulse Width   Slow    SRL16E/CLK   n/a            0.980         5.000       4.020      SLICE_X4Y46  eye_muse_bd_i/axi_smc/inst/clk_map/psr_aclk/U0/EXT_LPF/POR_SRL_I/CLK
+High Pulse Width  Slow    SRL16E/CLK   n/a            0.980         5.000       4.020      SLICE_X4Y46  eye_muse_bd_i/axi_smc/inst/clk_map/psr_aclk/U0/EXT_LPF/POR_SRL_I/CLK
+
+
+
+--------------------------------------------------------------------------------------
+Path Group:  (none)
+From Clock:  
+  To Clock:  clk_fpga_0
+
+Max Delay             1 Endpoint
+Min Delay             1 Endpoint
+--------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 eye_muse_bd_i/processing_system7_0/inst/PS7_i/FCLKRESETN[0]
+                            (internal pin)
+  Destination:            eye_muse_bd_i/rst_ps7_0_100M/U0/EXT_LPF/ACTIVE_LOW_EXT.ACT_LO_EXT/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_IN_cdc_to/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        3.170ns  (logic 0.124ns (3.912%)  route 3.046ns (96.088%))
+  Logic Levels:           1  (LUT1=1)
+  Clock Uncertainty:      0.152ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    PS7_X0Y0             PS7                          0.000     0.000 f  eye_muse_bd_i/processing_system7_0/inst/PS7_i/FCLKRESETN[0]
+                         net (fo=1, routed)           3.046     3.046    eye_muse_bd_i/rst_ps7_0_100M/U0/EXT_LPF/ACTIVE_LOW_EXT.ACT_LO_EXT/ext_reset_in
+    SLICE_X108Y76        LUT1 (Prop_lut1_I0_O)        0.124     3.170 r  eye_muse_bd_i/rst_ps7_0_100M/U0/EXT_LPF/ACTIVE_LOW_EXT.ACT_LO_EXT/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_IN_cdc_to_i_1/O
+                         net (fo=1, routed)           0.000     3.170    eye_muse_bd_i/rst_ps7_0_100M/U0/EXT_LPF/ACTIVE_LOW_EXT.ACT_LO_EXT/exr_d1
+    SLICE_X108Y76        FDRE                                         r  eye_muse_bd_i/rst_ps7_0_100M/U0/EXT_LPF/ACTIVE_LOW_EXT.ACT_LO_EXT/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_IN_cdc_to/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  eye_muse_bd_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088     1.088    eye_muse_bd_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091     1.179 r  eye_muse_bd_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=22148, routed)       1.668     2.847    eye_muse_bd_i/rst_ps7_0_100M/U0/EXT_LPF/ACTIVE_LOW_EXT.ACT_LO_EXT/slowest_sync_clk
+    SLICE_X108Y76        FDRE                                         r  eye_muse_bd_i/rst_ps7_0_100M/U0/EXT_LPF/ACTIVE_LOW_EXT.ACT_LO_EXT/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_IN_cdc_to/C
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 eye_muse_bd_i/processing_system7_0/inst/PS7_i/FCLKRESETN[0]
+                            (internal pin)
+  Destination:            eye_muse_bd_i/rst_ps7_0_100M/U0/EXT_LPF/ACTIVE_LOW_EXT.ACT_LO_EXT/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_IN_cdc_to/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Fast Process Corner)
+  Data Path Delay:        1.376ns  (logic 0.045ns (3.270%)  route 1.331ns (96.730%))
+  Logic Levels:           1  (LUT1=1)
+  Clock Uncertainty:      0.152ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    PS7_X0Y0             PS7                          0.000     0.000 f  eye_muse_bd_i/processing_system7_0/inst/PS7_i/FCLKRESETN[0]
+                         net (fo=1, routed)           1.331     1.331    eye_muse_bd_i/rst_ps7_0_100M/U0/EXT_LPF/ACTIVE_LOW_EXT.ACT_LO_EXT/ext_reset_in
+    SLICE_X108Y76        LUT1 (Prop_lut1_I0_O)        0.045     1.376 r  eye_muse_bd_i/rst_ps7_0_100M/U0/EXT_LPF/ACTIVE_LOW_EXT.ACT_LO_EXT/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_IN_cdc_to_i_1/O
+                         net (fo=1, routed)           0.000     1.376    eye_muse_bd_i/rst_ps7_0_100M/U0/EXT_LPF/ACTIVE_LOW_EXT.ACT_LO_EXT/exr_d1
+    SLICE_X108Y76        FDRE                                         r  eye_muse_bd_i/rst_ps7_0_100M/U0/EXT_LPF/ACTIVE_LOW_EXT.ACT_LO_EXT/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_IN_cdc_to/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  eye_muse_bd_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.337     0.337    eye_muse_bd_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  eye_muse_bd_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=22148, routed)       0.890     1.256    eye_muse_bd_i/rst_ps7_0_100M/U0/EXT_LPF/ACTIVE_LOW_EXT.ACT_LO_EXT/slowest_sync_clk
+    SLICE_X108Y76        FDRE                                         r  eye_muse_bd_i/rst_ps7_0_100M/U0/EXT_LPF/ACTIVE_LOW_EXT.ACT_LO_EXT/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_IN_cdc_to/C
+
+
+
+
+
+--------------------------------------------------------------------------------------
+Path Group:  (none)
+From Clock:  clk_fpga_0
+  To Clock:  clk_fpga_0
+
+Max Delay           149 Endpoints
+Min Delay           149 Endpoints
+--------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 eye_muse_bd_i/rst_ps7_0_100M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            eye_muse_bd_i/axi_smc/inst/clk_map/psr_aclk/U0/EXT_LPF/ACTIVE_LOW_AUX.ACT_LO_AUX/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_IN_cdc_to/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        6.653ns  (logic 0.642ns (9.649%)  route 6.011ns (90.350%))
+  Logic Levels:           1  (LUT1=1)
+  Clock Path Skew:        -0.393ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.759ns
+    Source Clock Delay      (SCD):    3.152ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  eye_muse_bd_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    eye_muse_bd_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  eye_muse_bd_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=22148, routed)       1.858     3.152    eye_muse_bd_i/rst_ps7_0_100M/U0/slowest_sync_clk
+    SLICE_X112Y84        FDRE                                         r  eye_muse_bd_i/rst_ps7_0_100M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X112Y84        FDRE (Prop_fdre_C_Q)         0.518     3.670 f  eye_muse_bd_i/rst_ps7_0_100M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
+                         net (fo=67, routed)          5.348     9.018    eye_muse_bd_i/axi_smc/inst/clk_map/psr_aclk/U0/EXT_LPF/ACTIVE_LOW_AUX.ACT_LO_AUX/aresetn
+    SLICE_X14Y43         LUT1 (Prop_lut1_I0_O)        0.124     9.142 r  eye_muse_bd_i/axi_smc/inst/clk_map/psr_aclk/U0/EXT_LPF/ACTIVE_LOW_AUX.ACT_LO_AUX/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_IN_cdc_to_i_1/O
+                         net (fo=1, routed)           0.663     9.805    eye_muse_bd_i/axi_smc/inst/clk_map/psr_aclk/U0/EXT_LPF/ACTIVE_LOW_AUX.ACT_LO_AUX/asr_d1
+    SLICE_X13Y46         FDRE                                         r  eye_muse_bd_i/axi_smc/inst/clk_map/psr_aclk/U0/EXT_LPF/ACTIVE_LOW_AUX.ACT_LO_AUX/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_IN_cdc_to/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  eye_muse_bd_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088     1.088    eye_muse_bd_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091     1.179 r  eye_muse_bd_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=22148, routed)       1.580     2.759    eye_muse_bd_i/axi_smc/inst/clk_map/psr_aclk/U0/EXT_LPF/ACTIVE_LOW_AUX.ACT_LO_AUX/aclk
+    SLICE_X13Y46         FDRE                                         r  eye_muse_bd_i/axi_smc/inst/clk_map/psr_aclk/U0/EXT_LPF/ACTIVE_LOW_AUX.ACT_LO_AUX/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_IN_cdc_to/C
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 uart_rx
+                            (input port clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            eye_muse_bd_i/gimbal_uart_0/inst/engine/rx_meta_reg/D
+                            (rising edge-triggered cell FDSE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Fast Process Corner)
+  Data Path Delay:        1.208ns  (logic 0.356ns (29.422%)  route 0.853ns (70.578%))
+  Logic Levels:           1  (IBUF=1)
+  Input Delay:            0.000ns
+  Clock Path Skew:        1.227ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.227ns
+    Source Clock Delay      (SCD):    0.000ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+                         input delay                  0.000     0.000    
+    Y14                                               0.000     0.000 r  uart_rx (IN)
+                         net (fo=0)                   0.000     0.000    uart_rx
+    Y14                  IBUF (Prop_ibuf_I_O)         0.356     0.356 r  uart_rx_IBUF_inst/O
+                         net (fo=1, routed)           0.853     1.208    eye_muse_bd_i/gimbal_uart_0/inst/engine/uart_rx
+    SLICE_X94Y74         FDSE                                         r  eye_muse_bd_i/gimbal_uart_0/inst/engine/rx_meta_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  eye_muse_bd_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.337     0.337    eye_muse_bd_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  eye_muse_bd_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=22148, routed)       0.861     1.227    eye_muse_bd_i/gimbal_uart_0/inst/engine/s00_axi_aclk
+    SLICE_X94Y74         FDSE                                         r  eye_muse_bd_i/gimbal_uart_0/inst/engine/rx_meta_reg/C
+
+
+
+
+

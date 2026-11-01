@@ -1,0 +1,73 @@
+{
+  "source_directory": "C:\\Users\\19702\\Desktop\\眼控\\eyecontrol_first",
+  "destination_directory": "E:\\eye_mouse_fpga\\software\\legacy_eyecontrol",
+  "source_files": [
+    {
+      "name": "main.py",
+      "source_path": "C:\\Users\\19702\\Desktop\\眼控\\eyecontrol_first\\main.py",
+      "source_sha256": "e050c6d4b5b79035cd9d06e0f0bbc0869d4085f5b71f00df1e161876fffb660e",
+      "copy_sha256": "edb6bd8efb700ce522ff6dbb6723027846ede3b73e6429f44eb1f67c5836d2e0",
+      "changed": true
+    },
+    {
+      "name": "eye_tracker.py",
+      "source_path": "C:\\Users\\19702\\Desktop\\眼控\\eyecontrol_first\\eye_tracker.py",
+      "source_sha256": "52c68c339cc58cf4fadaba70b2dce46de0fdbba378a2bd60290bc8c2520bf5e4",
+      "copy_sha256": "5b7b5a44e18a54f9e63f4da04393cda5fd61bd70d230a2996567e44d9387102e",
+      "changed": true
+    },
+    {
+      "name": "calibrator.py",
+      "source_path": "C:\\Users\\19702\\Desktop\\眼控\\eyecontrol_first\\calibrator.py",
+      "source_sha256": "5e7bd37f1d9d7ac137c5b5b52a5501c805ab5e866fc79a7adb1b48b1c4a37bce",
+      "copy_sha256": "5e7bd37f1d9d7ac137c5b5b52a5501c805ab5e866fc79a7adb1b48b1c4a37bce",
+      "changed": false
+    },
+    {
+      "name": "mouse_controller.py",
+      "source_path": "C:\\Users\\19702\\Desktop\\眼控\\eyecontrol_first\\mouse_controller.py",
+      "source_sha256": "b0ce1f6641abbec435c5701a8dbdfcdf532771d6816fc1015a33d001afb68d79",
+      "copy_sha256": "9c4a4aaddcdd738397b0fae1684b8bd26ba889ef43caaa63c01a98e1a4afdb1e",
+      "changed": true
+    }
+  ],
+  "new_files": [
+    "__init__.py",
+    "provenance.json",
+    "source_changes.patch"
+  ],
+  "exact_diff_file": "source_changes.patch",
+  "changes": {
+    "main.py": [
+      "Three sibling imports made package-relative.",
+      "EyeControlSystem accepts injected eye_tracker and mouse_controller, retaining original defaults.",
+      "Optional on_frame callback runs immediately after each camera read in both calibration and main loops.",
+      "Removed M key and console instructions; only C and Q, including uppercase, remain.",
+      "Q during calibration exits the application without fitting partial calibration.",
+      "Closing the original native windows exits cleanly; calibration read failures still process Q/window-close events.",
+      "Right-click invocation uses the injected mouse controller instead of bypassing it.",
+      "Camera initialization honors the existing camera_index setting with the original default of 0."
+    ],
+    "eye_tracker.py": [
+      "Added _map_normalized(feat), defaulting exactly to feat @ self.poly_matrix.",
+      "Both existing polynomial prediction sites use this hook; all original feature extraction, fitting, smoothing, blink and mouth code preserved."
+    ],
+    "calibrator.py": [
+      "Copied byte-for-byte unchanged."
+    ],
+    "mouse_controller.py": [
+      "Copied original methods unchanged; added right_click() forwarding exactly to pyautogui.rightClick() so the FPGA subclass can gate the call."
+    ],
+    "__init__.py": [
+      "Added package marker."
+    ]
+  },
+  "verification": {
+    "python_syntax": "passed",
+    "unchanged_calibrator": "byte-identical",
+    "camera_opened": false,
+    "os_mouse_used": false,
+    "original_mouse_methods_preserved": "new right_click method only",
+    "original_source_hashes": "all four still match recorded originals"
+  }
+}
