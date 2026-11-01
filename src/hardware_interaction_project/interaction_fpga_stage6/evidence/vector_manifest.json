@@ -1,0 +1,80 @@
+{
+  "vectors": 1409,
+  "columns": "reset now_ms op A B C D E F G H status out_mask OUT0..OUT7",
+  "evidence_level": "independent expected traces for simulation; injected logical time",
+  "scenarios": [
+    {
+      "name": "smooth_boundaries_invalid_input_and_distance_cap",
+      "first_vector": 1
+    },
+    {
+      "name": "deterministic_filter_sequence",
+      "first_vector": 14
+    },
+    {
+      "name": "screen_short_history_0",
+      "first_vector": 782
+    },
+    {
+      "name": "screen_short_history_1",
+      "first_vector": 793
+    },
+    {
+      "name": "screen_short_history_2",
+      "first_vector": 805
+    },
+    {
+      "name": "screen_short_history_3",
+      "first_vector": 818
+    },
+    {
+      "name": "screen_short_history_4",
+      "first_vector": 832
+    },
+    {
+      "name": "screen_short_history_5",
+      "first_vector": 847
+    },
+    {
+      "name": "screen_short_history_6",
+      "first_vector": 863
+    },
+    {
+      "name": "screen_ring_retrigger_clamp_invalid_flags",
+      "first_vector": 880
+    },
+    {
+      "name": "ack_failure_and_strict_plan_boundaries",
+      "first_vector": 968
+    },
+    {
+      "name": "environment_and_modular_timer_wrap",
+      "first_vector": 990
+    },
+    {
+      "name": "mouth_priority_threshold_three_frames_scroll_timing",
+      "first_vector": 999
+    },
+    {
+      "name": "mouse_center_border_signed_hold_exact_release",
+      "first_vector": 1019
+    },
+    {
+      "name": "mixed_operations_no_implicit_eye_history_reset",
+      "first_vector": 1114
+    },
+    {
+      "name": "max_screen_dimensions_odd_average_3",
+      "first_vector": 1373
+    },
+    {
+      "name": "max_screen_dimensions_odd_average_5",
+      "first_vector": 1386
+    },
+    {
+      "name": "full_signed_cursor_history_division_bounds",
+      "first_vector": 1401
+    }
+  ],
+  "sha256": "532f6a4769cef9bdf8b1a90963cb458ca5a9530eba016cd7382408745a1e0b36"
+}
